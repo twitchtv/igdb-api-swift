@@ -4,7 +4,7 @@ dist: trusty
 group: stable
 sudo: required
 install:
-  - eval "$(curl -sL https://gist.githubusercontent.com/kylef/5c0475ff02b7c7671d2a/raw/9f442512a46d7a2af7b850d65a7e9bd31edfb09b/swiftenv-install.sh)"
+  - eval "$(curl -sL https://gist.githubusercontent.com/krazyjakee/47aeaee06bd6d3e9cdeb0506f2bf1054/raw/8dd4811dce7321bcf5032357b70184f65111a35a/swiftenv-install.sh)"
   - swift --version
 script:
   - swift test
