@@ -11,7 +11,6 @@
 @testable import IGDBAPITestSuite
 
 import XCTest
-import Foundation
 
 XCTMain([
                 testCase(APIWrapperUnitTests.allTests),
