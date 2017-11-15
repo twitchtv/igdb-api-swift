@@ -26,15 +26,15 @@ class APIWrapper {
     
     func getJSON(url: String, jsonResponse: @escaping ([[String: AnyObject]]) -> (Void), jsonError: @escaping (Error) -> (Void)){
         DispatchQueue.global(qos: .userInitiated).async {
-            let url = NSURL(string: self.API_URL + url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+            let url = URL(string: self.API_URL + url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
             print(url as Any)
             
-            let requestHeader = NSMutableURLRequest(url: url! as URL)
+            var requestHeader = URLRequest(url: url! as URL)
             requestHeader.httpMethod = "GET"
             requestHeader.setValue(self.API_KEY, forHTTPHeaderField: "user-key")
             requestHeader.setValue("application/json", forHTTPHeaderField: "Accept")
             
-            let request = URLSession.shared.dataTask(with: requestHeader as URLRequest){
+            let request = URLSession.shared.dataTask(with: requestHeader){
                 data, response, error in
                 
                 if let data = data{
