@@ -1,10 +1,10 @@
 language: generic
 os: linux
-dist: yakkety
+dist: trusty
 group: stable
 sudo: required
 install:
-  - eval "$(curl -sL https://gist.githubusercontent.com/krazyjakee/47aeaee06bd6d3e9cdeb0506f2bf1054/raw/8dd4811dce7321bcf5032357b70184f65111a35a/swiftenv-install.sh)"
+  - eval "$(curl -sL https://gist.githubusercontent.com/krazyjakee/47aeaee06bd6d3e9cdeb0506f2bf1054/raw/d8f689bae65c896ae9bb655b342bc9782f50d58d/swiftenv-install.sh)"
   - swift --version
 script:
   - swift test
