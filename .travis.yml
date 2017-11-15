@@ -1,6 +1,6 @@
 language: generic
 os: linux
-dist: yakkety
+dist: trusty
 group: stable
 sudo: required
 install:
