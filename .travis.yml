@@ -8,3 +8,6 @@ install:
   - swift --version
 script:
   - swift test
+cache:
+  directories:
+    - $HOME/.swiftenv
