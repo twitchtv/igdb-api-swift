@@ -13,6 +13,5 @@
 import XCTest
 
 XCTMain([
-                testCase(APIWrapperUnitTests.allTests),
-                testCase(CharactersTest.allTests)
-        ])
+        testCase(APIWrapperUnitTests.allTests)
+])

@@ -10,6 +10,13 @@ import XCTest
 
 @testable import IGDBAPI
 
+extension APIWrapperUnitTests {
+    static var allTests = [
+        ("testSearch", testSearch),
+        ("testGames", testGames)
+    ]
+}
+
 class APIWrapperUnitTests: XCTestCase, WrapperTestCallback {
     
     var wrapper: APIWrapper? = nil
