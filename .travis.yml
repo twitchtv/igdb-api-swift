@@ -1,0 +1,9 @@
+language: generic
+os:
+  - linux
+dist:
+  - xenial
+group:
+  - stable
+script:
+  - swift test
