@@ -18,7 +18,7 @@ More info here:
 
 ## Using your API key
 * Create a new APIWrapper Object by passing you 3Scale key
-``` swift
+```swift
 let wrapper: APIWrapper = APIWrapper("YOUR_API_KEY")
 ```
 
@@ -31,7 +31,7 @@ __Arguments__
 
 __Example__ 
 * Requesting games from API
-``` swift
+```swift
 let wrapper: APIWrapper = APIWrapper("YOUR_API_KEY")
 let params: Parameters = Parameters()
 	.add(fields: "*")
@@ -50,7 +50,7 @@ https://api-2445582011268.apicast.io/games/?fields=*&order=published_at:desc */
 The rest of the endpoints work similarly to the Games endpoint except for two cases presented bellow.
 
 * Requesting search from the API
-``` swift
+```swift
 let wrapper: APIWrapper = APIWrapper("YOUR_API_KEY")
 let params: Parameters = Parameters()
 	.add(search: "searchQuery")
@@ -70,7 +70,7 @@ https://api-2445582011268.apicast.io/games/?search=searchQuery&fields=*&order=pu
 The search endpoint need an extra parameter, Endpoint, as you can search any endpoint for information.
 
 * Filtering a request result
-``` swift
+```swift
 let wrapper: APIWrapper = APIWrapper("YOUR_API_KEY")
 let params: Parameters = Parameters()
 	.add(fields: "*")
@@ -121,12 +121,12 @@ Search for up to five Zelda games with release dates between 1 Jan and
 */
 let params: Parameters = Parameters()
 	.add(search: "Zelda")
-	.add(fields: “name,release_dates.date,rating,hypes,cover”)
-	.add(filter: "[release_dates.date][gt]=2010-12-31”)
-	.add(filter: “[release_dates.date][lt]=2012-01-01”)
+	.add(fields: "name,release_dates.date,rating,hypes,cover")
+	.add(filter: "[release_dates.date][gt]=2010-12-31")
+	.add(filter: "[release_dates.date][lt]=2012-01-01")
 	.add(limit: "2")
 	.add(offset: "0")
-	.add(order: “release_dates.date:desc”);
+	.add(order: "release_dates.date:desc");
 
 wrapper?.search(endpoint: .PLATFORMS, params: params, onSuccess: {(jsonResponse: [[String: AnyObject]]) -> (Void) in
       // JSONArray containing 5 Zelda games
@@ -141,8 +141,8 @@ https://api-2445582011268.apicast.io/games/?search=Zelda&fields=name,release_dat
 Search for two specific games by their IDs
 */
 let params: Parameters = Parameters()
-	.add(ids: “18472,18228”)
-	.add(fields: “name,cover”);
+	.add(ids: "18472,18228")
+	.add(fields: "name,cover");
 
 wrapper?.games(params: params, onSuccess: {(jsonResponse: [[String: AnyObject]]) -> (Void) in
       // JSONArray containing 2 games
@@ -150,8 +150,10 @@ wrapper?.games(params: params, onSuccess: {(jsonResponse: [[String: AnyObject]])
      // Do something on error
 })
 
-/* The sent request will look like this:
-https://api-2445582011268.apicast.io/games/18472,18228?fields=name,cover */
+/*
+The sent request will look like this:
+https://api-2445582011268.apicast.io/games/18472,18228?fields=name,cover
+*/
 
 /*
 Search for companies with 'rockstar' in their name. Return up to five
@@ -159,11 +161,11 @@ results sorted by name in descending order
 */
 let params: Parameters = Parameters()
 	.add(search: "rockstar")
-	.add(fields: “name,logo”)
-	.add(filter: “[name][in]=rockstar”)
+	.add(fields: "name,logo")
+	.add(filter: "[name][in]=rockstar")
 	.add(limit: "5")
 	.add(offset: "0")
-	.add(order: “name:desc”);
+	.add(order: "name:desc");
 
 wrapper?.search(endpoint: .COMPANIES, params: params, onSuccess: {(jsonResponse: [[String: AnyObject]]) -> (Void) in
       // JSONArray containing five companies with rockstar in their name
@@ -173,3 +175,4 @@ wrapper?.search(endpoint: .COMPANIES, params: params, onSuccess: {(jsonResponse:
 
 /* The sent request will look like this:
 https://api-2445582011268.apicast.io/companies/?search=rockstar&fields=name,logo&filter[name][in]=rockstar&limit=5&offset=0&order=name:desc */
+```
