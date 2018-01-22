@@ -1,6 +1,6 @@
 use_frameworks!
-target 'api-swift_Tests' do
-  pod 'api-swift', :path => '../'
+target 'IGDBWrapper_Tests' do
+  pod 'IGDBWrapper', :path => '../'
   
   
 end

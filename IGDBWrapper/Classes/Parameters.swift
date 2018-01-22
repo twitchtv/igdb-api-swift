@@ -28,7 +28,7 @@ public class Parameters {
         return self
     }
     
-    public func add(ids: String) -> Parameters {
+   public  func add(ids: String) -> Parameters {
         self.ids = ids.replacingOccurrences(of: " ", with: "")
         return self
     }
@@ -93,5 +93,4 @@ public class Parameters {
     }
     
 }
-
 

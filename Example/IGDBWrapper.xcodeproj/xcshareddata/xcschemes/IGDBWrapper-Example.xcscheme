@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "api-swift_Example.app"
-               BlueprintName = "api-swift_Example"
-               ReferencedContainer = "container:api-swift.xcodeproj">
+               BuildableName = "IGDBWrapper_Example.app"
+               BlueprintName = "IGDBWrapper_Example"
+               ReferencedContainer = "container:IGDBWrapper.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "api-swift_Tests.xctest"
-               BlueprintName = "api-swift_Tests"
-               ReferencedContainer = "container:api-swift.xcodeproj">
+               BuildableName = "IGDBWrapper_Tests.xctest"
+               BlueprintName = "IGDBWrapper_Tests"
+               ReferencedContainer = "container:IGDBWrapper.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,9 +48,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "api-swift_Tests.xctest"
-               BlueprintName = "api-swift_Tests"
-               ReferencedContainer = "container:api-swift.xcodeproj">
+               BuildableName = "IGDBWrapper_Tests.xctest"
+               BlueprintName = "IGDBWrapper_Tests"
+               ReferencedContainer = "container:IGDBWrapper.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -58,9 +58,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "api-swift_Example.app"
-            BlueprintName = "api-swift_Example"
-            ReferencedContainer = "container:api-swift.xcodeproj">
+            BuildableName = "IGDBWrapper_Example.app"
+            BlueprintName = "IGDBWrapper_Example"
+            ReferencedContainer = "container:IGDBWrapper.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -82,9 +82,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "api-swift_Example.app"
-            BlueprintName = "api-swift_Example"
-            ReferencedContainer = "container:api-swift.xcodeproj">
+            BuildableName = "IGDBWrapper_Example.app"
+            BlueprintName = "IGDBWrapper_Example"
+            ReferencedContainer = "container:IGDBWrapper.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -101,9 +101,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "api-swift_Example.app"
-            BlueprintName = "api-swift_Example"
-            ReferencedContainer = "container:api-swift.xcodeproj">
+            BuildableName = "IGDBWrapper_Example.app"
+            BlueprintName = "IGDBWrapper_Example"
+            ReferencedContainer = "container:IGDBWrapper.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,9 +1,9 @@
 {
-  "name": "api-swift",
+  "name": "IGDBWrapper",
   "version": "0.1.0",
-  "summary": "A short description of api-swift.",
+  "summary": "A short description of IGDBWrapper.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/husnjak/api-swift",
+  "homepage": "https://github.com/husnjak/IGDBWrapper",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,11 @@
     "husnjak": "husnjak@student.chalmers.se"
   },
   "source": {
-    "git": "https://github.com/husnjak/api-swift.git",
+    "git": "https://github.com/husnjak/IGDBWrapper.git",
     "tag": "0.1.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "api-swift/Classes/**/*"
+  "source_files": "IGDBWrapper/Classes/**/*"
 }

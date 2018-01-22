@@ -1,16 +1,16 @@
 PODS:
-  - api-swift (0.1.0)
+  - IGDBWrapper (0.1.0)
 
 DEPENDENCIES:
-  - api-swift (from `../`)
+  - IGDBWrapper (from `../`)
 
 EXTERNAL SOURCES:
-  api-swift:
+  IGDBWrapper:
     :path: ../
 
 SPEC CHECKSUMS:
-  api-swift: 71e4e0e2611647707e70910f5cd7aca0b3a11094
+  IGDBWrapper: b37ae92ca792bc0073906b8dffe856f037bb2a3a
 
-PODFILE CHECKSUM: 8da1731b0867b2d7bae1b416f4eb899ec829cc68
+PODFILE CHECKSUM: 6d7e0e8b53bab332559c2ec6418b9ca5724be4aa
 
 COCOAPODS: 1.4.0

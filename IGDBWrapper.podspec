@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint api-swift.podspec' to ensure this is a
+# Be sure to run `pod lib lint IGDBWrapper.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'api-swift'
+  s.name             = 'IGDBWrapper'
   s.version          = '0.1.0'
   s.summary          = 'A Swift wrapper for the IGDB.com Free Video Game Database API.'
 
@@ -18,24 +18,23 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-An Swift wrapper for the IGDB.com Free Video Game Database API.
+A Swift wrapper for the IGDB.com Free Video Game Database API. igdb.com
                        DESC
 
   s.homepage         = 'https://github.com/igdb/igdb-api-swift'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'filip' => 'filip@igdb.com' }
+  s.author           = { 'Filip' => 'filip@igdb.com' }
   s.source           = { :git => 'https://github.com/igdb/igdb-api-swift.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '11.2'
-  
+  s.ios.deployment_target = '8.0'
   s.swift_version = '4.0'
 
-  s.source_files = 'api-swift/Classes/**/*'
+  s.source_files = 'IGDBWrapper/Classes/**/*'
   
   # s.resource_bundles = {
-  #   'api-swift' => ['api-swift/Assets/*.png']
+  #   'IGDBWrapper' => ['IGDBWrapper/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

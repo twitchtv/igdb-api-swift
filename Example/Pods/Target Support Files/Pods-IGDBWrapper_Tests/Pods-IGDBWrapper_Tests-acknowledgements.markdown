@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## api-swift
+## IGDBWrapper
 
 Copyright (c) 2018 husnjak <husnjak@student.chalmers.se>
 

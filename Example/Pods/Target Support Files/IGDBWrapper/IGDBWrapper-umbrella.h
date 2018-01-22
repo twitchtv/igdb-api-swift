@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_api_swift_TestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_api_swift_TestsVersionString[];
+FOUNDATION_EXPORT double IGDBWrapperVersionNumber;
+FOUNDATION_EXPORT const unsigned char IGDBWrapperVersionString[];
 

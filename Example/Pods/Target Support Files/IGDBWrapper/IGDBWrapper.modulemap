@@ -1,0 +1,6 @@
+framework module IGDBWrapper {
+  umbrella header "IGDBWrapper-umbrella.h"
+
+  export *
+  module * { export * }
+}
