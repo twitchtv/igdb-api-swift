@@ -1,4 +1,4 @@
-# api-swift
+# IGDBWrapper
 An Swift wrapper for the IGDB.com Free Video Game Database API.
 
 ## About IGDB
@@ -11,8 +11,22 @@ More info here:
 * [API Documentation](https://igdb.github.io/api/about/welcome/)
 
 # Installation and setup
+### CocoaPods
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
 
--- TODO installation Guide
+```bash
+$ gem install cocoapods
+```
+To integrate IGDBWrapper into your Xcode project using CocoaPods, specify it in your `Podfile`:
+```ruby
+pod 'IGDBWrapper', git: "https://github.com/igdb/igdb-api-swift.git"
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
 
 ## Using your API key
 * Create a new APIWrapper Object by passing you 3Scale key
