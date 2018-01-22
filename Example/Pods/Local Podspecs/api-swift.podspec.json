@@ -1,0 +1,22 @@
+{
+  "name": "api-swift",
+  "version": "0.1.0",
+  "summary": "A short description of api-swift.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/husnjak/api-swift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "husnjak": "husnjak@student.chalmers.se"
+  },
+  "source": {
+    "git": "https://github.com/husnjak/api-swift.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "api-swift/Classes/**/*"
+}

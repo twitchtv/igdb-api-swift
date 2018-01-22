@@ -1,0 +1,6 @@
+framework module api_swift {
+  umbrella header "api-swift-umbrella.h"
+
+  export *
+  module * { export * }
+}

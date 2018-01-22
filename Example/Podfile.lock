@@ -1,0 +1,16 @@
+PODS:
+  - api-swift (0.1.0)
+
+DEPENDENCIES:
+  - api-swift (from `../`)
+
+EXTERNAL SOURCES:
+  api-swift:
+    :path: ../
+
+SPEC CHECKSUMS:
+  api-swift: 71e4e0e2611647707e70910f5cd7aca0b3a11094
+
+PODFILE CHECKSUM: 8da1731b0867b2d7bae1b416f4eb899ec829cc68
+
+COCOAPODS: 1.4.0

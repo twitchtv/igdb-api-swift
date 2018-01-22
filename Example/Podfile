@@ -1,0 +1,6 @@
+use_frameworks!
+target 'api-swift_Tests' do
+  pod 'api-swift', :path => '../'
+  
+  
+end
