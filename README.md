@@ -31,7 +31,12 @@ $ pod install
 ## Using your API key
 * Create a new APIWrapper Object by passing you 3Scale key
 ```swift
-let wrapper: APIWrapper = APIWrapper("YOUR_API_KEY")
+let wrapper: APIWrapper = APIWrapper(API_KEY: "YOUR_API_KEY")
+```
+
+* If you have a 3Scale Pro key set the Pro version
+```swift
+let wrapper: APIWrapper = APIWrapper(API_KEY: "YOUR_API_KEY", API_VERSION: APIWrapper.Version.Pro)
 ```
 
 ## Usage
@@ -44,12 +49,12 @@ __Arguments__
 __Example__ 
 * Requesting games from API
 ```swift
-let wrapper: APIWrapper = APIWrapper("YOUR_API_KEY")
+let wrapper: APIWrapper = APIWrapper(API_KEY: "YOUR_API_KEY")
 let params: Parameters = Parameters()
 	.add(fields: "*")
-	.add(order: "published_at:desc");
+	.add(order: "published_at:desc")
 	
-wrapper?.games(params: params, onSuccess: {(jsonResponse: [[String: AnyObject]]) -> (Void) in
+wrapper.games(params: params, onSuccess: {(jsonResponse: [Game]) -> (Void) in
       // Do something with resulting jsonResponse (JsonArray)
 }, onError: {(Error) -> (Void) in
      // Do something on error
@@ -63,13 +68,13 @@ The rest of the endpoints work similarly to the Games endpoint except for two ca
 
 * Requesting search from the API
 ```swift
-let wrapper: APIWrapper = APIWrapper("YOUR_API_KEY")
+let wrapper: APIWrapper = APIWrapper(API_KEY: "YOUR_API_KEY")
 let params: Parameters = Parameters()
 	.add(search: "searchQuery")
 	.add(fields: "*")
-	.add(order: "published_at:desc");
+	.add(order: "published_at:desc")
 
-wrapper?.search(endpoint: .GAMES, params: params, onSuccess: {(jsonResponse: [[String: AnyObject]]) -> (Void) in
+wrapper.search(endpoint: .GAMES, params: params, onSuccess: {(jsonResponse: [Game]) -> (Void) in
       // Do something with resulting jsonResponse (JsonArray)
 }, onError: {(Error) -> (Void) in
       // Do something on error
@@ -83,13 +88,13 @@ The search endpoint need an extra parameter, Endpoint, as you can search any end
 
 * Filtering a request result
 ```swift
-let wrapper: APIWrapper = APIWrapper("YOUR_API_KEY")
+let wrapper: APIWrapper = APIWrapper(API_KEY: "YOUR_API_KEY")
 let params: Parameters = Parameters()
 	.add(fields: "*")
 	.add(filter: "[themes][not_in]=42")
-	.add(order: "published_at:desc");
+	.add(order: "published_at:desc")
 
-wrapper?.games(params: params, onSuccess: {(jsonResponse: [[String: AnyObject]]) -> (Void) in
+wrapper.games(params: params, onSuccess: {(jsonResponse: [Game]) -> (Void) in
       // Do something with resulting jsonResponse (JsonArray)
 }, onError: {(Error) -> (Void) in
      // Do something on error
@@ -108,7 +113,7 @@ The IGDB API documentation provides [details on search parameters](https://igdb.
 ## More examples
 ```swift
 
-let wrapper: APIWrapper = APIWrapper("YOUR_API_KEY")
+let wrapper: APIWrapper = APIWrapper(API_KEY: "YOUR_API_KEY")
 
 /*
 Search for up to two Atari platforms and return their names
@@ -116,9 +121,9 @@ Search for up to two Atari platforms and return their names
 let params: Parameters = Parameters()
 	.add(search: "Atari")
 	.add(fields: "name")
-	.add(limit: "2");
+	.add(limit: "2")
 
-wrapper?.search(endpoint: .PLATFORMS, params: params, onSuccess: {(jsonResponse: [[String: AnyObject]]) -> (Void) in
+wrapper.search(endpoint: .PLATFORMS, params: params, onSuccess: {(jsonResponse: [Platform]) -> (Void) in
       // JSONArray containing 2 Atari platforms
 }, onError: {(Error) -> (Void) in
       // Do something on error
@@ -138,9 +143,9 @@ let params: Parameters = Parameters()
 	.add(filter: "[release_dates.date][lt]=2012-01-01")
 	.add(limit: "2")
 	.add(offset: "0")
-	.add(order: "release_dates.date:desc");
+	.add(order: "release_dates.date:desc")
 
-wrapper?.search(endpoint: .PLATFORMS, params: params, onSuccess: {(jsonResponse: [[String: AnyObject]]) -> (Void) in
+wrapper.search(endpoint: .PLATFORMS, params: params, onSuccess: {(jsonResponse: [Platform]) -> (Void) in
       // JSONArray containing 5 Zelda games
 }, onError: {(Error) -> (Void) in
       // Do something on error
@@ -154,9 +159,9 @@ Search for two specific games by their IDs
 */
 let params: Parameters = Parameters()
 	.add(ids: "18472,18228")
-	.add(fields: "name,cover");
+	.add(fields: "name,cover")
 
-wrapper?.games(params: params, onSuccess: {(jsonResponse: [[String: AnyObject]]) -> (Void) in
+wrapper.games(params: params, onSuccess: {(jsonResponse: [Game]) -> (Void) in
       // JSONArray containing 2 games
 }, onError: {(Error) -> (Void) in
      // Do something on error
@@ -177,9 +182,9 @@ let params: Parameters = Parameters()
 	.add(filter: "[name][in]=rockstar")
 	.add(limit: "5")
 	.add(offset: "0")
-	.add(order: "name:desc");
+	.add(order: "name:desc")
 
-wrapper?.search(endpoint: .COMPANIES, params: params, onSuccess: {(jsonResponse: [[String: AnyObject]]) -> (Void) in
+wrapper.search(endpoint: .COMPANIES, params: params, onSuccess: {(jsonResponse: [Company]) -> (Void) in
       // JSONArray containing five companies with rockstar in their name
 }, onError: {(Error) -> (Void) in
       // Do something on error
