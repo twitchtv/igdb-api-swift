@@ -11,7 +11,7 @@ import Dispatch
 
 public class APIWrapper {
     
-    let API_URL: String = "https://api-2445582011268.apicast.io/"
+    var API_URL: String = "https://api-2445582011268.apicast.io/"
     let API_KEY: String
     
     public enum Endpoint: String {
@@ -20,11 +20,19 @@ public class APIWrapper {
         PULSE_SOURCES, PULSES, RELEASE_DATES, REVIEWS, THEMES, TITLES
     }
     
-    public init(API_KEY: String) {
-        self.API_KEY = API_KEY
+    public enum Version: String {
+        case Pro, Standard
     }
     
-    public func getJSON(url: String, jsonResponse: @escaping ([[String: AnyObject]]) -> (Void), jsonError: @escaping (Error) -> (Void)){
+    public init(API_KEY: String, VERSION: Version = Version.Standard) {
+        self.API_KEY = API_KEY
+        if VERSION == Version.Pro {
+            API_URL = API_URL + "/pro/"
+        }
+    }
+    
+    
+    public func getJSON<T: Codable>(url: String, jsonResponse: @escaping ([T]) -> (Void), jsonError: @escaping (Error) -> (Void)){
         DispatchQueue.global(qos: .userInitiated).async {
             let url = URL(string: self.API_URL + url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
             print(url as Any)
@@ -43,10 +51,18 @@ public class APIWrapper {
                     print("request completed with code: \(statusCode)")
                     
                     if statusCode == 200 {
-                        print("return to completion handler with the data")
-                        let jsonArray = self.parse(data: data as Data)
-                        DispatchQueue.main.async {
-                            jsonResponse(jsonArray!)
+                        do {
+                            print("return to completion handler with the data")
+                            let jsonResp: [T] = try JSONDecoder().decode([T].self, from: data as Data)
+                            DispatchQueue.main.async {
+                                jsonResponse(jsonResp)
+                            }
+                        }catch let error {
+                            print("***There was an error Decoding response***")
+                            print(error)
+                            DispatchQueue.main.async {
+                                jsonError(error)
+                            }
                         }
                     }
                 }else if let error = error {
@@ -60,130 +76,120 @@ public class APIWrapper {
             request.resume()
         }
     }
+
     
-    public func parse (data: Data) -> [[String: AnyObject]]? {
-        let options = JSONSerialization.ReadingOptions()
-        do {
-            let json = try JSONSerialization.jsonObject(with: data, options: options) as! [[String: AnyObject]]
-            return json
-        } catch let parseError {
-            print("There was an error parsing the JSON: \"\(parseError.localizedDescription)\"")
-        }
-        return nil
-    }
-    
-    public func search(endpoint: Endpoint, params: Parameters,
-                onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+    public func search<T: Codable>(endpoint: Endpoint, params: Parameters,
+                                   onSuccess: @escaping ([T]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: endpoint), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func games(params: Parameters,
-               onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                      onSuccess: @escaping ([Game]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .GAMES), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func pulses(params: Parameters,
-                onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                       onSuccess: @escaping ([Pulse]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .PULSES), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func characters(params: Parameters,
-                    onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                           onSuccess: @escaping ([Character]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .CHARACTERS), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func collections(params: Parameters,
-                     onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                            onSuccess: @escaping ([Collection]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .COLLECTIONS), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func companies(params: Parameters,
-                   onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                          onSuccess: @escaping ([Company]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .COMPANIES), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func franchises(params: Parameters,
-                    onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                           onSuccess: @escaping ([Franchise]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .FRANCHISES), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func feeds(params: Parameters,
-               onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                      onSuccess: @escaping ([Feed]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .FEEDS), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func pages(params: Parameters,
-               onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                      onSuccess: @escaping ([Page]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .PAGES), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func gameEngines(params: Parameters,
-                     onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                            onSuccess: @escaping ([GameEngine]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .GAME_ENGINES), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func gameModes(params: Parameters,
-                   onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                          onSuccess: @escaping ([GameMode]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .GAME_MODES), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func genres(params: Parameters,
-                onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                       onSuccess: @escaping ([Genre]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .GENRES), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func keywords(params: Parameters,
-                  onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                         onSuccess: @escaping ([Keyword]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .KEYWORDS), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func people(params: Parameters,
-                onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                       onSuccess: @escaping ([Person]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .PEOPLE), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func platforms(params: Parameters,
-                   onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                          onSuccess: @escaping ([Platform]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .PLATFORMS), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func playerPerspectives(params: Parameters,
-                            onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                                   onSuccess: @escaping ([PlayerPerspective]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .PLAYER_PERSPECTIVES), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func releaseDates(params: Parameters,
-                      onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                             onSuccess: @escaping ([ReleaseDate]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .RELEASE_DATES), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func pulseGroups(params: Parameters,
-                     onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                            onSuccess: @escaping ([PulseGroup]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .PULSE_GROUPS), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func pulseSources(params: Parameters,
-                      onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                             onSuccess: @escaping ([PulseSource]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .PULSE_SOURCES), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func themes(params: Parameters,
-                onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                       onSuccess: @escaping ([Theme]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .THEMES), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func reviews(params: Parameters,
-                 onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                        onSuccess: @escaping ([Review]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .REVIEWS), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func titles(params: Parameters,
-                onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                       onSuccess: @escaping ([Title]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .TITLES), jsonResponse: onSuccess, jsonError: onError)
     }
     
     public func credits(params: Parameters,
-                 onSuccess: @escaping ([[String: AnyObject]]) -> (Void), onError: @escaping (Error) -> (Void)){
+                        onSuccess: @escaping ([Credit]) -> (Void), onError: @escaping (Error) -> (Void)){
         getJSON(url: params.buildQuery(endpoint: .CREDITS), jsonResponse: onSuccess, jsonError: onError)
     }
     
