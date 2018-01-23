@@ -31,7 +31,14 @@ A Swift wrapper for the IGDB.com Free Video Game Database API. igdb.com
   s.ios.deployment_target = '8.0'
   s.swift_version = '4.0'
 
-  s.source_files = 'IGDBWrapper/Classes/**/*'
+  #s.source_files = 'IGDBWrapper/Classes/**/*'
+  s.subspec 'Wrapper' do |ss|
+      ss.source_files ='IGDBWrapper/Classes/Wrapper/*'
+  end
+  
+  s.subspec 'Structs' do |ss|
+      ss.source_files ='IGDBWrapper/Classes/Structs/*'
+  end
   
   # s.resource_bundles = {
   #   'IGDBWrapper' => ['IGDBWrapper/Assets/*.png']

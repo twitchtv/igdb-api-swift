@@ -23,6 +23,8 @@ public class Parameters {
     
     var filters: [String] = []
     
+    public init() {}
+    
     public func add(filter: String) -> Parameters {
         filters.append("&filter\(filter.replacingOccurrences(of: " ", with: ""))")
         return self

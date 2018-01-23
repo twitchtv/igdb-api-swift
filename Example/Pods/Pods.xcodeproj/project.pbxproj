@@ -72,8 +72,8 @@
 		B09C6CBDD1FFC6388F5C32EEFA90C690 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA8D81BD9EDEF997E8985AE111EE00C3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D6B1EB5B26AFFE58C99AB9795AB5DBD7 /* IGDBWrapper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IGDBWrapper-dummy.m"; sourceTree = "<group>"; };
-		F56B6B182016290300888E52 /* APIWrapper.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; name = APIWrapper.swift; path = IGDBWrapper/Classes/APIWrapper.swift; sourceTree = "<group>"; };
-		F56B6B192016290300888E52 /* Parameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parameters.swift; path = IGDBWrapper/Classes/Parameters.swift; sourceTree = "<group>"; };
+		F56B6B182016290300888E52 /* APIWrapper.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; fileEncoding = 4; path = APIWrapper.swift; sourceTree = "<group>"; };
+		F56B6B192016290300888E52 /* Parameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameters.swift; sourceTree = "<group>"; };
 		F5CD91E9201762F50024B925 /* Caracter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Caracter.swift; sourceTree = "<group>"; };
 		F5CD91EA201762F50024B925 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		F5CD91EB201762F50024B925 /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
@@ -165,9 +165,8 @@
 		B3EC49C2AFFC9C3751D0B3E1AD578702 /* IGDBWrapper */ = {
 			isa = PBXGroup;
 			children = (
+				F5D0D7F720176B5100FB8E09 /* Wrapper */,
 				F5CD91E8201762F50024B925 /* Structs */,
-				F56B6B182016290300888E52 /* APIWrapper.swift */,
-				F56B6B192016290300888E52 /* Parameters.swift */,
 				3328CD209F817B43A0C7BFCE647B5C0B /* Pod */,
 				653FA0A58978D844E040EC3D18CD5BB6 /* Support Files */,
 			);
@@ -254,6 +253,16 @@
 			);
 			name = Structs;
 			path = IGDBWrapper/Classes/Structs;
+			sourceTree = "<group>";
+		};
+		F5D0D7F720176B5100FB8E09 /* Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				F56B6B182016290300888E52 /* APIWrapper.swift */,
+				F56B6B192016290300888E52 /* Parameters.swift */,
+			);
+			name = Wrapper;
+			path = IGDBWrapper/Classes/Wrapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
