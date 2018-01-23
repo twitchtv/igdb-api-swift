@@ -252,7 +252,8 @@
 				F5CD91FD201762F50024B925 /* Theme.swift */,
 				F5CD91FE201762F50024B925 /* Title.swift */,
 			);
-			path = Structs;
+			name = Structs;
+			path = IGDBWrapper/Classes/Structs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

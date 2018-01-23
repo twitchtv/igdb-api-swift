@@ -24,9 +24,9 @@ public class APIWrapper {
         case Pro, Standard
     }
     
-    public init(API_KEY: String, VERSION: Version = Version.Standard) {
+    public init(API_KEY: String, API_VERSION: Version = .Standard) {
         self.API_KEY = API_KEY
-        if VERSION == Version.Pro {
+        if API_VERSION == Version.Pro {
             API_URL = API_URL + "/pro/"
         }
     }
