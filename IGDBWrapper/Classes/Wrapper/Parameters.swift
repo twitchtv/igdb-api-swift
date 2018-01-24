@@ -1,6 +1,5 @@
 //
 //  Parameters.swift
-//  APIWrapperPlayground
 //
 //  Created by Filip Husnjak on 2017-11-14.
 //  Copyright © 2017 igdb. All rights reserved.

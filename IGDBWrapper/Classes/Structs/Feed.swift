@@ -1,6 +1,5 @@
 //
 //  Feed.swift
-//  main-iOS-app
 //
 //  Created by Filip Husnjak on 2018-01-23.
 //  Copyright © 2018 igdb. All rights reserved.
@@ -9,28 +8,28 @@
 import Foundation
 
 public struct FeedVideo: Codable {
-    var name: String?
-    var video_id: String?
+    public var name: String?
+    public var video_id: String?
 }
 
 public struct Feed: Codable {
-    var id: UInt64?
-    var name: String?
-    var created_at: Int64?
-    var updated_at: Int64?
-    var publiclished_at: Int64?
-    var slug: String?
-    var url: String?
-    var title: String?
-    var content: String?
-    var user: Int64?
-    var games: [ObjectType<Game>]?
-    var category: Int64?
-    var feed_likes_count: Int64?
-    var feed_video: FeedVideo?
-    var pulse: ObjectType<Pulse>
-    var uid: String?
-    var meta: String?
-    var _score: Float64?
-    var error: [String]?
+    public var id: UInt64?
+    public var name: String?
+    public var created_at: Int64?
+    public var updated_at: Int64?
+    public var publiclished_at: Int64?
+    public var slug: String?
+    public var url: String?
+    public var title: String?
+    public var content: String?
+    public var user: Int64?
+    public var games: [ObjectType<Game>]?
+    public var category: Int64?
+    public var feed_likes_count: Int64?
+    public var feed_video: FeedVideo?
+    public var pulse: ObjectType<Pulse>?
+    public var uid: String?
+    public var meta: String?
+    public var _score: Float64?
+    public var error: [String]?
 }

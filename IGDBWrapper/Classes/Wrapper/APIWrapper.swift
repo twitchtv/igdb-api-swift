@@ -1,6 +1,5 @@
 //
 //  APIWrapper.swift
-//  APIWrapperPlayground
 //
 //  Created by Filip Husnjak on 2017-11-13.
 //  Copyright © 2017 igdb. All rights reserved.
@@ -27,7 +26,7 @@ public class APIWrapper {
     public init(API_KEY: String, API_VERSION: Version = .Standard) {
         self.API_KEY = API_KEY
         if API_VERSION == Version.Pro {
-            API_URL = API_URL + "/pro/"
+            API_URL = API_URL + "pro/"
         }
     }
     

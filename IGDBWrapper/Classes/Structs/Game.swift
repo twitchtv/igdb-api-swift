@@ -1,6 +1,5 @@
 //
 //  GameStruct.swift
-//  main-iOS-app
 //
 //  Created by Filip Husnjak on 2018-01-22.
 //  Copyright © 2018 igdb. All rights reserved.
@@ -9,134 +8,134 @@
 import Foundation
 
 public struct TimeToBeat: Codable {
-    var hastly: Int64?
-    var normally: Int64?
-    var completely: Int64?
+    public var hastly: Int64?
+    public var normally: Int64?
+    public var completely: Int64?
 }
 
 public struct ReleaseDate: Codable {
-    var category: Int64?
-    var platform: Int64?
-    var date: Int64?
-    var region: Int64?
-    var human: String?
-    var y: Int64?
-    var m: Int64?
+    public var category: Int64?
+    public var platform: Int64?
+    public var date: Int64?
+    public var region: Int64?
+    public var human: String?
+    public var y: Int64?
+    public var m: Int64?
    }
 
 public struct AlternativeName: Codable {
-    var name: String?
-    var comment: String?
+    public var name: String?
+    public var comment: String?
    }
 
 public struct Screenshot: Codable {
-    var url: String?
-    var cloudinary_id: String?
-    var width: Int64?
-    var height: Int64?
+    public var url: String?
+    public var cloudinary_id: String?
+    public var width: Int64?
+    public var height: Int64?
    }
 
 public struct Video: Codable {
-    var category: Int64?
-    var name: String?
-    var video_id: String?
+    public var category: Int64?
+    public var name: String?
+    public var video_id: String?
    }
 
 public struct Cover: Codable {
-    var url: String?
-    var cloudinary_id: String?
-    var width: Int64?
-    var height: Int64?
+    public var url: String?
+    public var cloudinary_id: String?
+    public var width: Int64?
+    public var height: Int64?
    }
 
 public struct Esrb: Codable {
-    var synopsis: String?
-    var rating: Int64?
+    public var synopsis: String?
+    public var rating: Int64?
    }
 
 public struct Pegi: Codable {
-    var synopsis: String?
-    var rating: Int64?
+    public var synopsis: String?
+    public var rating: Int64?
    }
 
 public struct Website: Codable {
-    var category: Int64?
-    var url: String?
+    public var category: Int64?
+    public var url: String?
    }
 
 public struct External: Codable {
-    var steam: String?
+    public var steam: String?
    }
 
 public struct MultiplayerMode: Codable {
-    var platform: Int64?
-    var offlinecoop: Bool?
-    var onlinecoop: Bool?
-    var lancoop: Bool?
-    var campaigncoop: Bool?
-    var splitscreenonline: Bool?
-    var splitscreen: Bool?
-    var dropin: Bool?
-    var offlinecoopmax: Int64?
-    var onlinecoopmax: Int64?
-    var onlinemax: Int64?
-    var offlinemax: Int64?
+    public var platform: Int64?
+    public var offlinecoop: Bool?
+    public var onlinecoop: Bool?
+    public var lancoop: Bool?
+    public var campaigncoop: Bool?
+    public var splitscreenonline: Bool?
+    public var splitscreen: Bool?
+    public var dropin: Bool?
+    public var offlinecoopmax: Int64?
+    public var onlinecoopmax: Int64?
+    public var onlinemax: Int64?
+    public var offlinemax: Int64?
    }
 
 public struct Game: Codable {
-    var id: UInt64?
-    var name: String?
-    var slug: String?
-    var url: String?
-    var created_at: Int64?
-    var updated_at: Int64?
-    var summary: String?
-    var storyline: String?
-    var collection: ObjectType<Collection>?
-    var franchise: ObjectType<Franchise>?
-    var franchises: [ObjectType<Franchise>]?
-    var hypes: Int64?
-    var follows: Int64?
-    var rating: Float64?
-    var popularity: Float64?
-    var aggregated_rating: Float64?
-    var aggregated_rating_count: Int64?
-    var total_rating: Float64?
-    var total_rating_count: Int64?
-    var rating_count: Int64?
-    var game: ObjectType<Game>?
-    var version_parent: ObjectType<Game>?
-    var version_title: String?
-    var games: [ObjectType<Game>]?
-    var tags: [Int64]?
-    var developers: [ObjectType<Company>]?
-    var publishers: [ObjectType<Company>]?
-    var game_engines: [ObjectType<GameEngine>]?
-    var category: Int64?
-    var time_to_beat: TimeToBeat?
-    var player_perspectives: [ObjectType<PlayerPerspective>]?
-    var game_modes: [ObjectType<GameMode>]?
-    var keywords: [ObjectType<Keyword>]?
-    var themes: [ObjectType<Theme>]?
-    var genres: [ObjectType<Genre>]?
-    var expansions: [ObjectType<Game>]?
-    var dlcs: [ObjectType<Game>]?
-    var bundles: [ObjectType<Game>]?
-    var standalone_expansions: [ObjectType<Game>]?
-    var first_release_date: Int64?
-    var status: Int64?
-    var pulse_count: Int64?
-    var platforms: [ObjectType<Platform>]?
-    var release_dates: [ReleaseDate]?
-    var alternative_names: [AlternativeName]?
-    var screenshots: [Screenshot]?
-    var videos: [Video]?
-    var cover: Cover?
-    var esrb: Esrb?
-    var pegi: [Pegi]?
-    var websites: [Website]?
-    var external: External?
-    var multiplayer_modes: [MultiplayerMode]?
-    var _score: Float64?
-    var error: [String]?
+    public var id: UInt64?
+    public var name: String?
+    public var slug: String?
+    public var url: String?
+    public var created_at: Int64?
+    public var updated_at: Int64?
+    public var summary: String?
+    public var storyline: String?
+    public var collection: ObjectType<Collection>?
+    public var franchise: ObjectType<Franchise>?
+    public var franchises: [ObjectType<Franchise>]?
+    public var hypes: Int64?
+    public var follows: Int64?
+    public var rating: Float64?
+    public var popularity: Float64?
+    public var aggregated_rating: Float64?
+    public var aggregated_rating_count: Int64?
+    public var total_rating: Float64?
+    public var total_rating_count: Int64?
+    public var rating_count: Int64?
+    public var game: ObjectType<Game>?
+    public var version_parent: ObjectType<Game>?
+    public var version_title: String?
+    public var games: [ObjectType<Game>]?
+    public var tags: [Int64]?
+    public var developers: [ObjectType<Company>]?
+    public var publishers: [ObjectType<Company>]?
+    public var game_engines: [ObjectType<GameEngine>]?
+    public var category: Int64?
+    public var time_to_beat: TimeToBeat?
+    public var player_perspectives: [ObjectType<PlayerPerspective>]?
+    public var game_modes: [ObjectType<GameMode>]?
+    public var keywords: [ObjectType<Keyword>]?
+    public var themes: [ObjectType<Theme>]?
+    public var genres: [ObjectType<Genre>]?
+    public var expansions: [ObjectType<Game>]?
+    public var dlcs: [ObjectType<Game>]?
+    public var bundles: [ObjectType<Game>]?
+    public var standalone_expansions: [ObjectType<Game>]?
+    public var first_release_date: Int64?
+    public var status: Int64?
+    public var pulse_count: Int64?
+    public var platforms: [ObjectType<Platform>]?
+    public var release_dates: [ReleaseDate]?
+    public var alternative_names: [AlternativeName]?
+    public var screenshots: [Screenshot]?
+    public var videos: [Video]?
+    public var cover: Cover?
+    public var esrb: Esrb?
+    public var pegi: [Pegi]?
+    public var websites: [Website]?
+    public var external: External?
+    public var multiplayer_modes: [MultiplayerMode]?
+    public var _score: Float64?
+    public var error: [String]?
 }
