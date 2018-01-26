@@ -110,6 +110,31 @@ Information about Filtering and the postfixes like 'not_in' can be found [here](
 The rest of the available Endpoints are [Available Here](https://igdb.github.io/api/endpoints/).
 The IGDB API documentation provides [details on search parameters](https://igdb.github.io/api/references/filters/).
 
+## Expander Example
+To use the expander api in structs you have to use the `expand()` function
+```swift
+var userReviews: [Review] = []
+
+let params: Parameters = Parameters()
+	    .add(fields: "*")
+            .add(expand: "game")
+            .add(order: "created_at:desc")
+        
+wrapper.reviews(params: params, onSuccess: { (reveiewResponse: [Review]) -> (Void) in
+		self.userReviews = reveiewResponse
+}, onError: {(Error) -> (Void) in
+		// Do something on error
+})
+
+let review = userReviews[1]
+let expandedGame = review.game?.expand() // <- Returns the expanded Struct
+print(expandedGame.name)
+
+/* The sent request will look like this:
+https://api-2445582011268.apicast.io/reveiws/?fields=*&expand=game&order=created_at:desc */
+
+```
+
 ## More examples
 ```swift
 
