@@ -19,7 +19,7 @@ public struct Feed: Codable {
     public var name: String?
     public var created_at: Int64?
     public var updated_at: Int64?
-    public var publiclished_at: Int64?
+    public var published_at: Int64?
     public var slug: String?
     public var url: String?
     public var title: String?
