@@ -11,6 +11,8 @@ public struct TimeToBeat: Codable {
     public var hastly: Int64?
     public var normally: Int64?
     public var completely: Int64?
+    
+    public init() {}
 }
 
 public struct ReleaseDate: Codable {
@@ -21,11 +23,15 @@ public struct ReleaseDate: Codable {
     public var human: String?
     public var y: Int64?
     public var m: Int64?
+    
+    public init() {}
    }
 
 public struct AlternativeName: Codable {
     public var name: String?
     public var comment: String?
+    
+    public init() {}
    }
 
 public struct Screenshot: Codable {
@@ -33,12 +39,16 @@ public struct Screenshot: Codable {
     public var cloudinary_id: String?
     public var width: Int64?
     public var height: Int64?
+    
+    public init() {}
    }
 
 public struct Video: Codable {
     public var category: Int64?
     public var name: String?
     public var video_id: String?
+    
+    public init() {}
    }
 
 public struct Cover: Codable {
@@ -46,25 +56,35 @@ public struct Cover: Codable {
     public var cloudinary_id: String?
     public var width: Int64?
     public var height: Int64?
+    
+    public init() {}
    }
 
 public struct Esrb: Codable {
     public var synopsis: String?
     public var rating: Int64?
+    
+    public init() {}
    }
 
 public struct Pegi: Codable {
     public var synopsis: String?
     public var rating: Int64?
+    
+    public init() {}
    }
 
 public struct Website: Codable {
     public var category: Int64?
     public var url: String?
+    
+    public init() {}
    }
 
 public struct External: Codable {
     public var steam: String?
+    
+    public init() {}
    }
 
 public struct MultiplayerMode: Codable {
@@ -80,6 +100,8 @@ public struct MultiplayerMode: Codable {
     public var onlinecoopmax: Int64?
     public var onlinemax: Int64?
     public var offlinemax: Int64?
+    
+    public init() {}
    }
 
 public struct Game: Codable {
@@ -132,10 +154,12 @@ public struct Game: Codable {
     public var videos: [Video]?
     public var cover: Cover?
     public var esrb: Esrb?
-    public var pegi: [Pegi]?
+    public var pegi: Pegi?
     public var websites: [Website]?
     public var external: External?
     public var multiplayer_modes: [MultiplayerMode]?
     public var _score: Float64?
     public var error: [String]?
+    
+    public init() {}
 }

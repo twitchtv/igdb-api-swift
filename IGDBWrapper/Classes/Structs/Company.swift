@@ -7,14 +7,6 @@
 
 import Foundation
 
-// can be found in GameEngine
-//public struct Logo: Codable {
-//    public var url: String?
-//    public var cloudinary_id: String?
-//    public var width: Int64?
-//    public var height: Int64?
-//   }
-
 public struct Company: Codable {
     public var id: UInt64?
     public var name: String?
@@ -38,5 +30,7 @@ public struct Company: Codable {
     public var developed: [ObjectType<Game>]?
     public var _score: Float64?
     public var error:  [String]?
+    
+    public init() {}
 }
 

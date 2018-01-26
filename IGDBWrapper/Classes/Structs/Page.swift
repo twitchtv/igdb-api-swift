@@ -14,6 +14,7 @@ public struct Background: Codable {
     public var width: Int64?
     public var height: Int64?
     
+    public init() {}
 }
 
 public struct Page: Codable {
@@ -52,4 +53,6 @@ public struct Page: Codable {
     public var background: Background?
     public var _score: Float64?
     public var error: [String]?
+    
+    public init() {}
 }

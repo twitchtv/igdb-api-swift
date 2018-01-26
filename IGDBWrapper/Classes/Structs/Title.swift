@@ -18,4 +18,6 @@ public struct Title: Codable {
     public var games: [ObjectType<Game>]?
     public var _score: Float64?
     public var error: [String]?
+    
+    public init() {}
 }

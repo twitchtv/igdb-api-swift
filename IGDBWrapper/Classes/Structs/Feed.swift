@@ -10,6 +10,8 @@ import Foundation
 public struct FeedVideo: Codable {
     public var name: String?
     public var video_id: String?
+    
+    public init() {}
 }
 
 public struct Feed: Codable {
@@ -32,4 +34,6 @@ public struct Feed: Codable {
     public var meta: String?
     public var _score: Float64?
     public var error: [String]?
+    
+    public init() {}
 }

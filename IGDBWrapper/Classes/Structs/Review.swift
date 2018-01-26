@@ -29,4 +29,6 @@ public struct Review: Codable {
     public var negative_points: String?
     public var _score: Float64?
     public var error: [String]?
+    
+    public init() {}
 }

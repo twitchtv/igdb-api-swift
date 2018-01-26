@@ -38,4 +38,6 @@ public struct Person: Codable {
     public var characters: [ObjectType<Character>]?
     public var _score: Float64?
     public var error: [String]?
+    
+    public init() {}
 }

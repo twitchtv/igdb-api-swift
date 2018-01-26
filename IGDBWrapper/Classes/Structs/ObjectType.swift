@@ -42,4 +42,11 @@ public indirect enum ObjectType<T: Codable>: Codable {
             try container.encode(standardID, forKey: .Id)
         }
     }
+    
+    public func expand() -> T? {
+        if case let .Struct(obj) = self {
+            return obj
+        }
+        return nil
+    }
 }

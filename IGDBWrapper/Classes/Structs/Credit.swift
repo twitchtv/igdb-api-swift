@@ -24,4 +24,6 @@ public struct Credit: Codable {
     public var character_credited_name: String?
     public var _score: Float64?
     public var error: [String]?
+    
+    public init() {}
 }

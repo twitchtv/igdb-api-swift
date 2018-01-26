@@ -14,4 +14,6 @@ public struct PulseSource: Codable {
     public var page: ObjectType<Page>?
     public var _score: Float64?
     public var error: [String]?
+    
+    public init() {}
 }

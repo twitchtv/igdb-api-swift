@@ -13,6 +13,7 @@ public struct PulseImage: Codable {
     public var width: Int64?
     public var height: Int64?
     
+    public init() {}
 }
 
 public struct Pulse: Codable {
@@ -34,4 +35,6 @@ public struct Pulse: Codable {
     public var tags: [Int64]?
     public var _score: Float64?
     public var error: [String]?
+    
+    public init() {}
 }

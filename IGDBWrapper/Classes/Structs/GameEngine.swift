@@ -13,6 +13,8 @@ public struct Logo: Codable {
    public var cloudinary_id: String?
    public var width: Int64?
    public var height: Int64?
+    
+    public init() {}
 }
 
 public struct GameEngine: Codable {
@@ -28,5 +30,7 @@ public struct GameEngine: Codable {
     public var companies: [ObjectType<Company>]?
     public var _score: Float64?
     public var error: [String]?
+    
+    public init() {}
 }
 

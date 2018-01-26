@@ -7,29 +7,19 @@
 
 import Foundation
 
-// can be found in GameEngine
-//public struct Logo: Codable {
-//    public var url: String?
-//    public var cloudinary_id: String?
-//    public var width: Int64?
-//    public var height: Int64?
-//   }
-
 public struct Manufacturer: Codable {
     public var company: Int64?
     public var comment: String?
+    
+    public init() {}
    }
 
 public struct Developer: Codable {
     public var company: Int64?
     public var comment: String?
+    
+    public init() {}
    }
-
-// Can be found in Game
-//public struct ReleaseDate: Codable {
-//    public var date: Int64?
-//    public var region: Int64?
-//   }
 
 public struct Version: Codable {
     public var name: String?
@@ -52,6 +42,8 @@ public struct Version: Codable {
     public var developers: [Developer]?
     public var logo: Logo?
     public var release_dates: [ReleaseDate]?
+    
+    public init() {}
    }
 
 public struct Platform: Codable {
@@ -73,5 +65,7 @@ public struct Platform: Codable {
     public var versions: [Version]?
     public var _score: Float64?
     public var error: [String]?
+    
+    public init() {}
 }
 

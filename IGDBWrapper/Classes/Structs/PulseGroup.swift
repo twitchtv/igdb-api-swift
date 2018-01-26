@@ -19,4 +19,6 @@ public struct PulseGroup: Codable {
     public var pulses: [ObjectType<Pulse>]?
     public var _score: Float64?
     public var error: [String]?
+    
+    public init() {}
 }
