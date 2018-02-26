@@ -19,9 +19,11 @@ public class APIWrapper {
         GENRES, KEYWORDS, PAGES, PEOPLE, PLATFORMS, PLAYER_PERSPECTIVES, PULSE_GROUPS,
         PULSE_SOURCES, PULSES, RELEASE_DATES, REVIEWS, THEMES, TITLES
     }
-    
     public enum Version: String {
         case Pro, Standard
+    }
+    public enum HttpMethod: String {
+        case GET, POST, PATCH, DELETE
     }
     
     public init(API_KEY: String, API_VERSION: Version = .Standard, debug: Bool = false) {
@@ -34,17 +36,23 @@ public class APIWrapper {
     }
     
     
-    public func getJSON<T: Codable>(url: String, jsonResponse: @escaping ([T]) -> (Void), jsonError: @escaping (Error) -> (Void)){
+    public func getJSON<T: Codable>(url: String, method: HttpMethod = .GET, body: Data? = nil, requestHeaders: URLRequest? = nil, jsonResponse: @escaping ([T]) -> (Void), jsonError: @escaping (Error) -> (Void)){
         DispatchQueue.global(qos: .userInitiated).async {
             let url = URL(string: self.API_URL + url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
-            if self.debug {
-                print(url as Any)
-            }
+            self.printMsg(msg: url as Any as! String, error: nil)
             
-            var requestHeader = URLRequest(url: url! as URL)
-            requestHeader.httpMethod = "GET"
-            requestHeader.setValue(self.API_KEY, forHTTPHeaderField: "user-key")
-            requestHeader.setValue("application/json", forHTTPHeaderField: "Accept")
+            var requestHeader: URLRequest!
+            if requestHeaders != nil { // Custom headers for requests
+                requestHeader = requestHeaders
+                requestHeader.url = (url! as URL)
+                
+            } else { // Standard Headers for requests
+                requestHeader = URLRequest(url: url! as URL)
+                requestHeader.httpBody = body
+                requestHeader.httpMethod = method.rawValue
+                requestHeader.setValue(self.API_KEY, forHTTPHeaderField: "user-key")
+                requestHeader.setValue("application/json", forHTTPHeaderField: "Accept")
+            }
             
             let request = URLSession.shared.dataTask(with: requestHeader){
                 data, response, error in
@@ -52,32 +60,43 @@ public class APIWrapper {
                 if let data = data{
                     let httpResponse = response as! HTTPURLResponse
                     let statusCode = httpResponse.statusCode
-                    print("request completed with code: \(statusCode)")
+                    self.printMsg(msg: "request completed with code: \(statusCode)", error: nil)
                     
                     if statusCode == 200 {
                         do {
-                            print("return to completion handler with the data")
+                            self.printMsg(msg: "return to completion handler with the data", error: nil)
                             let jsonResp: [T] = try JSONDecoder().decode([T].self, from: data as Data)
+                            
                             DispatchQueue.main.async {
                                 jsonResponse(jsonResp)
                             }
                         }catch let error {
-                            print("***There was an error Decoding response***")
-                            print(error)
+                            self.printMsg(msg: "***There was an error Decoding response***", error: error)
+
                             DispatchQueue.main.async {
-                                jsonError(error)
+                                jsonError(APIError(statusCode: statusCode, msg: "There was an error decoding the response!", error: error))
                             }
                         }
                     }
                 }else if let error = error {
-                    print("***There was an error making the HTTP request***")
-                    print(error.localizedDescription)
+                    self.printMsg(msg: "***There was an error making the HTTP request***", error: error)
+
                     DispatchQueue.main.async {
                         jsonError(error)
                     }
                 }
             }
             request.resume()
+        }
+    }
+    
+    // Checks if debug and prints!
+    private func printMsg(msg: String, error: Error?) {
+        if self.debug {
+            print(msg)
+            if error != nil {
+                print(error!)
+            }
         }
     }
 

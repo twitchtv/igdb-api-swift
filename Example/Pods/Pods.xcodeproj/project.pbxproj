@@ -37,6 +37,7 @@
 		F5CD9212201762F50024B925 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD91FC201762F50024B925 /* Review.swift */; };
 		F5CD9213201762F50024B925 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD91FD201762F50024B925 /* Theme.swift */; };
 		F5CD9214201762F50024B925 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CD91FE201762F50024B925 /* Title.swift */; };
+		F5EDC7B92043F45800010F32 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EDC7B82043F45800010F32 /* APIError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		F5CD91FC201762F50024B925 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		F5CD91FD201762F50024B925 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		F5CD91FE201762F50024B925 /* Title.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		F5EDC7B82043F45800010F32 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		FD418EFE2825C4DF2A42838CFC1A4EC4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -250,6 +252,7 @@
 				F5CD91FC201762F50024B925 /* Review.swift */,
 				F5CD91FD201762F50024B925 /* Theme.swift */,
 				F5CD91FE201762F50024B925 /* Title.swift */,
+				F5EDC7B82043F45800010F32 /* APIError.swift */,
 			);
 			name = Structs;
 			path = IGDBWrapper/Classes/Structs;
@@ -392,6 +395,7 @@
 				F56B6B1B2016290300888E52 /* Parameters.swift in Sources */,
 				F5CD9201201762F50024B925 /* Company.swift in Sources */,
 				F5CD920F201762F50024B925 /* Pulse.swift in Sources */,
+				F5EDC7B92043F45800010F32 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
