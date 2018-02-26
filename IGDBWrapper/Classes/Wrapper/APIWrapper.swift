@@ -39,7 +39,7 @@ public class APIWrapper {
     public func getJSON<T: Codable>(url: String, method: HttpMethod = .GET, body: Data? = nil, requestHeaders: URLRequest? = nil, jsonResponse: @escaping ([T]) -> (Void), jsonError: @escaping (Error) -> (Void)){
         DispatchQueue.global(qos: .userInitiated).async {
             let url = URL(string: self.API_URL + url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
-            self.printMsg(msg: url as Any as! String, error: nil)
+            self.printMsg(msg: "\(url)", error: nil)
             
             var requestHeader: URLRequest!
             if requestHeaders != nil { // Custom headers for requests
