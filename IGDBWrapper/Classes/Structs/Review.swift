@@ -16,6 +16,13 @@ public struct Review: Codable {
     public var url: String?
     public var title: String?
     public var game: ObjectType<Game>?
+    public var avatar_url: String?
+    public var review_rating: Int?
+    public var story_rate: Int?
+    public var graphics_rate: Int?
+    public var audio_rate: Int?
+    public var controls_rate: Int?
+    public var fun_rate: Int?
     public var category: Int64?
     public var likes: Int64?
     public var views: Int64?

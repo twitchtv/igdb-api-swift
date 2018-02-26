@@ -49,4 +49,11 @@ public indirect enum ObjectType<T: Codable>: Codable {
         }
         return nil
     }
+    
+    public func id() -> Int64? {
+        if case let .Id(value) = self {
+            return value
+        }
+        return nil
+    }
 }

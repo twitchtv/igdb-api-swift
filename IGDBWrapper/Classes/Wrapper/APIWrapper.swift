@@ -12,6 +12,7 @@ public class APIWrapper {
     
     var API_URL: String = "https://api-2445582011268.apicast.io/"
     let API_KEY: String
+    var debug: Bool!
     
     public enum Endpoint: String {
         case CHARACTERS, COLLECTIONS, COMPANIES, CREDITS, FEEDS, FRANCHISES, GAME_ENGINES, GAME_MODES, GAMES,
@@ -23,18 +24,22 @@ public class APIWrapper {
         case Pro, Standard
     }
     
-    public init(API_KEY: String, API_VERSION: Version = .Standard) {
+    public init(API_KEY: String, API_VERSION: Version = .Standard, debug: Bool = false) {
         self.API_KEY = API_KEY
         if API_VERSION == Version.Pro {
             API_URL = API_URL + "pro/"
         }
+        
+        self.debug = debug
     }
     
     
     public func getJSON<T: Codable>(url: String, jsonResponse: @escaping ([T]) -> (Void), jsonError: @escaping (Error) -> (Void)){
         DispatchQueue.global(qos: .userInitiated).async {
             let url = URL(string: self.API_URL + url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
-            print(url as Any)
+            if self.debug {
+                print(url as Any)
+            }
             
             var requestHeader = URLRequest(url: url! as URL)
             requestHeader.httpMethod = "GET"

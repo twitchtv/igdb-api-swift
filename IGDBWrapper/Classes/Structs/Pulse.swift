@@ -28,7 +28,7 @@ public struct Pulse: Codable {
     public var created_at: Int64?
     public var updated_at: Int64?
     public var pulse_source: ObjectType<PulseSource>?
-    public var publiclished_at: Int64?
+    public var published_at: Int64?
     public var ignored: Bool?
     public var videos: [Video]?
     public var pulse_image: PulseImage?

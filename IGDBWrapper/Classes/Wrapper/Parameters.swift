@@ -88,8 +88,7 @@ public class Parameters {
         }
         
         query += filter + expand + order + limit + offset + scroll
-        print(query)
-        
+                
         return query
     }
     
