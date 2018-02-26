@@ -10,7 +10,7 @@ import Dispatch
 
 public class APIWrapper {
     
-    var API_URL: String = "https://api-2445582011268.apicast.io/"
+    var API_URL: String = "https://api-endpoint.igdb.com/"
     let API_KEY: String
     var debug: Bool!
     
