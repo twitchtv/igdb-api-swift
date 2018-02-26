@@ -36,7 +36,7 @@ public class APIWrapper {
     }
     
     
-    public func getJSON<T: Codable>(url: String, method: HttpMethod = .GET, body: Data? = nil, requestHeaders: URLRequest? = nil, jsonResponse: @escaping ([T]) -> (Void), jsonError: @escaping (Error) -> (Void)){
+    public func getJSON<T: Codable>(url: String, method: HttpMethod = .GET, body: Data? = nil, requestHeaders: URLRequest? = nil, jsonResponse: @escaping (T) -> (Void), jsonError: @escaping (Error) -> (Void)){
         DispatchQueue.global(qos: .userInitiated).async {
             let url = URL(string: self.API_URL + url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
             self.printMsg(msg: "\(url)", error: nil)
@@ -65,7 +65,7 @@ public class APIWrapper {
                     if statusCode == 200 {
                         do {
                             self.printMsg(msg: "return to completion handler with the data", error: nil)
-                            let jsonResp: [T] = try JSONDecoder().decode([T].self, from: data as Data)
+                            let jsonResp: T = try JSONDecoder().decode(T.self, from: data as Data)
                             
                             DispatchQueue.main.async {
                                 jsonResponse(jsonResp)
