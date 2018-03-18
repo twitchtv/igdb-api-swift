@@ -70,7 +70,7 @@ public class Parameters {
         return self
     }
     
-    public func buildQuery(endpoint: IGDBWrapper.Endpoint) -> String {
+    public func buildQuery(endpoint: Endpoint) -> String {
         var filter: String = ""
         
         for param in filters {

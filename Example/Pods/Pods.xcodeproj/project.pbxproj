@@ -10,6 +10,7 @@
 		17BA6DF8193B741ECFA1FFBD760748DE /* IGDBWrapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A009ECA5ECC4CA170FA421B2EFE49AA9 /* IGDBWrapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		27803898387E3E92E350B4F1AB0623B5 /* Pods-IGDBWrapper_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A06EF6DB292AFD27005191538E2A66DE /* Pods-IGDBWrapper_Tests-dummy.m */; };
 		523CF85E78602240D5C16EC7EF82D020 /* Pods-IGDBWrapper_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AF6C9DA91E398D121230E1B79FDB0C81 /* Pods-IGDBWrapper_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6EEC4E38205ECDA900372050 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEC4E37205ECDA900372050 /* Enums.swift */; };
 		837A8C54E3E3759782ED74778ACB97D9 /* IGDBWrapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B1EB5B26AFFE58C99AB9795AB5DBD7 /* IGDBWrapper-dummy.m */; };
 		9EF401A9B0DA32D3C3199767FF55FB26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		D6F5425C55D53AE96F88DCF062557BCA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
@@ -63,6 +64,7 @@
 		60B95DF7402BE468831A4D06B863186F /* Pods-IGDBWrapper_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-IGDBWrapper_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		67DE9A727D6A2E9603D2F0A9F66819E0 /* IGDBWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IGDBWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EEC4E37205ECDA900372050 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		863C3D161A1E8BC4492CDD421CC6A3D8 /* IGDBWrapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IGDBWrapper.modulemap; sourceTree = "<group>"; };
 		8AFF6F02E703BB522FA39A1F45E228A8 /* Pods_IGDBWrapper_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IGDBWrapper_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -263,6 +265,7 @@
 			children = (
 				F56B6B182016290300888E52 /* IGDBWrapper.swift */,
 				F56B6B192016290300888E52 /* Parameters.swift */,
+				6EEC4E37205ECDA900372050 /* Enums.swift */,
 			);
 			name = Wrapper;
 			path = IGDBWrapper/Classes/Wrapper;
@@ -386,6 +389,7 @@
 				F5CD9210201762F50024B925 /* PulseGroup.swift in Sources */,
 				F5CD91FF201762F50024B925 /* Caracter.swift in Sources */,
 				F5CD9214201762F50024B925 /* Title.swift in Sources */,
+				6EEC4E38205ECDA900372050 /* Enums.swift in Sources */,
 				F5CD9207201762F50024B925 /* GameMode.swift in Sources */,
 				F5CD9208201762F50024B925 /* Genre.swift in Sources */,
 				F5CD9202201762F50024B925 /* Credit.swift in Sources */,

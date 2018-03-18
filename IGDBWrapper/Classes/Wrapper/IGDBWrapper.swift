@@ -13,25 +13,8 @@ import Dispatch
 public class IGDBWrapper {
     
     var API_URL: String = "https://api-endpoint.igdb.com/"
-    let API_KEY: String
+    let apiKey: String
     var debug: Bool!
-    
-    // Enums of IGDB endpoints.
-    public enum Endpoint: String {
-        case CHARACTERS, COLLECTIONS, COMPANIES, CREDITS, FEEDS, FRANCHISES, GAME_ENGINES, GAME_MODES, GAMES,
-        GENRES, KEYWORDS, PAGES, PEOPLE, PLATFORMS, PLAYER_PERSPECTIVES, PULSE_GROUPS,
-        PULSE_SOURCES, PULSES, RELEASE_DATES, REVIEWS, THEMES, TITLES
-    }
-    
-    // Emuns of api versions, Standard or Pro.
-    public enum Version: String {
-        case Pro, Standard
-    }
-    
-    // Enums of HTTP methods for requests.
-    public enum HttpMethod: String {
-        case GET, POST, PATCH, DELETE
-    }
     
     /**
         Init prepares the wrapper with the neccessary information such as the API key.
@@ -40,9 +23,9 @@ public class IGDBWrapper {
         @param apiVersion   The version of the api to be used, Standard or Pro.
         @param debug        Displays debug prints, queries.
     **/
-    public init(apiKey: String, apiVersion: Version = .Standard, debug: Bool = false) {
-        self.API_KEY = API_KEY
-        if API_VERSION == Version.Pro {
+    public init(apiKey: String, apiVersion: UserVersion = .Standard, debug: Bool = false) {
+        self.apiKey = apiKey
+        if apiVersion == UserVersion.Pro {
             API_URL = API_URL + "pro/"
         }
         
@@ -64,7 +47,7 @@ public class IGDBWrapper {
     public func getJSON<T: Codable>(url: String, method: HttpMethod = .GET, body: Data? = nil, requestHeaders: URLRequest? = nil, jsonResponse: @escaping (T) -> (Void), jsonError: @escaping (Error) -> (Void)){
         DispatchQueue.global(qos: .userInitiated).async {
             let url = URL(string: self.API_URL + url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
-            self.printMsg(msg: "\(url)", error: nil)
+            self.printMsg(msg: "\(url!)", error: nil)
             
             var requestHeader: URLRequest!
             if requestHeaders != nil { // Custom headers for requests
@@ -75,7 +58,7 @@ public class IGDBWrapper {
                 requestHeader = URLRequest(url: url! as URL)
                 requestHeader.httpBody = body
                 requestHeader.httpMethod = method.rawValue
-                requestHeader.setValue(self.API_KEY, forHTTPHeaderField: "user-key")
+                requestHeader.setValue(self.apiKey, forHTTPHeaderField: "user-key")
                 requestHeader.setValue("application/json", forHTTPHeaderField: "Accept")
             }
             
