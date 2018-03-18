@@ -41,10 +41,11 @@ let wrapper: IGDBWrapper = IGDBWrapper(apiKey: "YOUR_API_KEY", apiVersion: IGDBW
 
 ## Usage
 All API endpoints are available as methods in the IGDBWrapper object. Each method has the following signature:
-### wrapper.endpoint(Parameters, onSuccessCallback)
+### wrapper.endpoint(Parameters, onSuccessClousure, onErrorClosure)
 __Arguments__
 * Parameters - An object specifying the operations to be performed, ex. expander, filter, ordering etc. These Operations can be found in the API documentation under References: (https://igdb.github.io/api/references/)
-* onSuccessCallback - The callback is used to return to the previous method once the wrapper has retrieved the desired data from the API.
+* onSuccessClosure - The closure is used to return to the previous method once the wrapper has retrieved the desired data from the API.
+* onErrorClosure  -  The closure is used to return to the previous method if the wrapper falies to retrieved the desired data from the API.
 
 __Example__ 
 * Requesting games from API
