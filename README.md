@@ -36,7 +36,7 @@ let wrapper: IGDBWrapper = IGDBWrapper(apiKey: "YOUR_API_KEY")
 
 * If you have a 3Scale Pro key set the Pro version
 ```swift
-let wrapper: IGDBWrapper = IGDBWrapper(apiKey: "YOUR_API_KEY", apiVersion: IGDBWrapper.Version.Pro)
+let wrapper: IGDBWrapper = IGDBWrapper(apiKey: "YOUR_API_KEY", apiVersion: .Pro)
 ```
 
 ## Usage
