@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IGDBWrapper'
-  s.version          = '0.2.6'
+  s.version          = '0.2.7'
   s.summary          = 'A Swift wrapper for the IGDB.com Free Video Game Database API.'
 
 # This description is used to generate tags and improve search results.
