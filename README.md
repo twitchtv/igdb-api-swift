@@ -29,18 +29,18 @@ $ pod install
 ```
 
 ## Using your API key
-* Create a new APIWrapper Object by passing you 3Scale key
+* Create a new IGDBWrapper Object by passing you 3Scale key
 ```swift
-let wrapper: APIWrapper = APIWrapper(API_KEY: "YOUR_API_KEY")
+let wrapper: IGDBWrapper = IGDBWrapper(apiKey: "YOUR_API_KEY")
 ```
 
 * If you have a 3Scale Pro key set the Pro version
 ```swift
-let wrapper: APIWrapper = APIWrapper(API_KEY: "YOUR_API_KEY", API_VERSION: APIWrapper.Version.Pro)
+let wrapper: IGDBWrapper = IGDBWrapper(apiKey: "YOUR_API_KEY", apiVersion: IGDBWrapper.Version.Pro)
 ```
 
 ## Usage
-All API endpoints are available as methods in the APIWrapper object. Each method has the following signature:
+All API endpoints are available as methods in the IGDBWrapper object. Each method has the following signature:
 ### wrapper.endpoint(Parameters, onSuccessCallback)
 __Arguments__
 * Parameters - An object specifying the operations to be performed, ex. expander, filter, ordering etc. These Operations can be found in the API documentation under References: (https://igdb.github.io/api/references/)
@@ -49,7 +49,7 @@ __Arguments__
 __Example__ 
 * Requesting games from API
 ```swift
-let wrapper: APIWrapper = APIWrapper(API_KEY: "YOUR_API_KEY")
+let wrapper: IGDBWrapper = IGDBWrapper(apiKey: "YOUR_API_KEY")
 let params: Parameters = Parameters()
 	.add(fields: "*")
 	.add(order: "published_at:desc")
@@ -68,7 +68,7 @@ The rest of the endpoints work similarly to the Games endpoint except for two ca
 
 * Requesting search from the API
 ```swift
-let wrapper: APIWrapper = APIWrapper(API_KEY: "YOUR_API_KEY")
+let wrapper: IGDBWrapper = IGDBWrapper(apiKey: "YOUR_API_KEY")
 let params: Parameters = Parameters()
 	.add(search: "searchQuery")
 	.add(fields: "*")
@@ -88,7 +88,7 @@ The search endpoint need an extra parameter, Endpoint, as you can search any end
 
 * Filtering a request result
 ```swift
-let wrapper: APIWrapper = APIWrapper(API_KEY: "YOUR_API_KEY")
+let wrapper: IGDBWrapper = IGDBWrapper(apiKey: "YOUR_API_KEY")
 let params: Parameters = Parameters()
 	.add(fields: "*")
 	.add(filter: "[themes][not_in]=42")
@@ -138,7 +138,7 @@ https://api-2445582011268.apicast.io/reveiws/?fields=*&expand=game&order=created
 ## More examples
 ```swift
 
-let wrapper: APIWrapper = APIWrapper(API_KEY: "YOUR_API_KEY")
+let wrapper: IGDBWrapper = IGDBWrapper(apiKey: "YOUR_API_KEY")
 
 /*
 Search for up to two Atari platforms and return their names
