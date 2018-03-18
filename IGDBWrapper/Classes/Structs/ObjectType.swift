@@ -16,10 +16,18 @@ extension ObjectType{
     }
 }
 
+/**
+    ObjectType keeps track of struct expansion with two different 'states'
+    Struct OR Int64
+    If the request is expanded then the ObjectType will be a struct of that type. Otherwise it will be the id
+ 
+    @param T the struct type it should expand to, if expanded.
+ */
 public indirect enum ObjectType<T: Codable>: Codable {
     case Struct(T)
     case Id(Int64)
     
+    // decodes the response to the correct 'state', Struct or Int64.
     public init(from decoder: Decoder) throws {
         let values = try decoder.singleValueContainer()
         
@@ -32,6 +40,7 @@ public indirect enum ObjectType<T: Codable>: Codable {
         }
     }
     
+    // encodes the response to the correct 'state', Struct or Int64.
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodableKeys.self)
         
@@ -43,6 +52,7 @@ public indirect enum ObjectType<T: Codable>: Codable {
         }
     }
     
+    // Converts the ObjectType to the expanded stuct, If the response is expanded.
     public func expand() -> T? {
         if case let .Struct(obj) = self {
             return obj
@@ -50,6 +60,15 @@ public indirect enum ObjectType<T: Codable>: Codable {
         return nil
     }
     
+    // Checks if the ObjectType is expandable.
+    public func isExpanded() -> Bool {
+        if case  .Struct(_) = self {
+            return true
+        }
+        return false
+    }
+    
+    // Converts the ObjectType to the unexpanded Int64, If the response is not expanded.
     public func id() -> Int64? {
         if case let .Id(value) = self {
             return value

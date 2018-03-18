@@ -1,7 +1,8 @@
 //
 //  Parameters.swift
+//  Lets users build queries for the wrapper
 //
-//  Created by Filip Husnjak on 2017-11-14.
+//  Created by Filip on 2017-11-14.
 //  Copyright © 2017 igdb. All rights reserved.
 //
 
@@ -69,7 +70,7 @@ public class Parameters {
         return self
     }
     
-    public func buildQuery(endpoint: APIWrapper.Endpoint) -> String {
+    public func buildQuery(endpoint: IGDBWrapper.Endpoint) -> String {
         var filter: String = ""
         
         for param in filters {
