@@ -15,6 +15,7 @@ public class IGDBWrapper {
     var API_URL: String = "https://api-endpoint.igdb.com/"
     let apiKey: String
     var debug: Bool!
+    var request: URLSessionDataTask?
     
     /**
         Init prepares the wrapper with the neccessary information such as the API key.
@@ -62,7 +63,7 @@ public class IGDBWrapper {
                 requestHeader.setValue("application/json", forHTTPHeaderField: "Accept")
             }
             
-            let request = URLSession.shared.dataTask(with: requestHeader){
+            self.request = URLSession.shared.dataTask(with: requestHeader){
                 data, response, error in
                 
                 if let data = data{
@@ -94,7 +95,7 @@ public class IGDBWrapper {
                     }
                 }
             }
-            request.resume()
+            self.request?.resume()
         }
     }
     
@@ -106,6 +107,11 @@ public class IGDBWrapper {
                 print(error!)
             }
         }
+    }
+    
+    // Stops the requests
+    public func stopCurrentTask() {
+        request?.cancel()
     }
 
     /**
