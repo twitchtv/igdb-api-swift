@@ -86,6 +86,13 @@ public class IGDBWrapper {
                                 jsonError(APIError(statusCode: statusCode, msg: "There was an error decoding the response!", error: error))
                             }
                         }
+                    } else {
+                        let apiError = APIError(statusCode: statusCode, msg: "The status code was not 200 OK! it was \(statusCode)", error: nil)
+                        self.printMsg(msg: "The status code was not 200 OK!", error: error)
+                        
+                        DispatchQueue.main.async {
+                            jsonError(apiError)
+                        }
                     }
                 }else if let error = error {
                     self.printMsg(msg: "***There was an error making the HTTP request***", error: error)

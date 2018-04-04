@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct APIError: LocalizedError {
-    var errorDescription: String?
-    var failureReason: String?
-    var recoverySuggestion: String?
-    var helpAnchor: String?
+public struct APIError: LocalizedError {
+    public var errorDescription: String?
+    public var failureReason: String?
+    public var recoverySuggestion: String?
+    public var helpAnchor: String?
     // Custom vars
-    var errorCode: Int?
-    var error: Error?
+    public var errorCode: Int?
+    public var error: Error?
     
-    init(statusCode: Int, msg: String, error: Error) {
+    public init(statusCode: Int, msg: String, error: Error?) {
         errorCode = statusCode
         errorDescription = msg
         failureReason = msg
