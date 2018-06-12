@@ -42,13 +42,12 @@ public indirect enum ObjectType<T: Codable>: Codable {
     
     // encodes the response to the correct 'state', Struct or Int64.
     public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodableKeys.self)
         
         switch self {
-        case let .Struct(ExtendedID):
-            try container.encode(ExtendedID, forKey: .Struct)
+        case let .Struct(extendedID):
+            try extendedID.encode(to: encoder)
         case let .Id(standardID):
-            try container.encode(standardID, forKey: .Id)
+            try standardID.encode(to: encoder)
         }
     }
     
