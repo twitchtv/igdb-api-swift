@@ -1,3 +1,8 @@
+# Project is Deprecated and no longer supported!!
+
+Please migrate to another project like [IGDB-SWIFT-API](https://github.com/husnjak/IGDB-SWIFT-API).  
+This project will no longer get any updates
+
 # IGDBWrapper
 A Swift wrapper for the IGDB.com Free Video Game Database API.
 
